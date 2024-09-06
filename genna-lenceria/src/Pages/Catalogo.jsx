@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import Categorias from "../components/Categorias"
 
 function Catalogo() {
