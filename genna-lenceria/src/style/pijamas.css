@@ -1,0 +1,15 @@
+.pijamas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+}
+
+article{
+    border: 1px solid;
+}
+
+.img{
+    width: 400px;
+    height: 350px;
+}

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
+import "../style/categorias.css"
 
 function Categorias({titulo, descripcion, img, url}) {
   return (
+    <div className='Categorias'>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={img} />
       <Card.Body>
@@ -13,6 +15,7 @@ function Categorias({titulo, descripcion, img, url}) {
         <Link to={url}>Ingresar</Link>
       </Card.Body>
     </Card>
+    </div>
   );
 }
 
