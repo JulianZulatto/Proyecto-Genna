@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import "../style/categorias.css"
+import "../Categorias-Catalogo/categorias.css"
+
 
 function Categorias({titulo, descripcion, img, url}) {
   return (

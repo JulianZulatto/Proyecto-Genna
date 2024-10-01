@@ -1,6 +1,6 @@
 
-import Categorias from "../components/Categorias"
-import "../style/catalogo.css"
+import Categorias from "../Categorias-Catalogo/Categorias"
+import "../Categorias-Catalogo/catalogo.css"
 
 function Catalogo() {
 
