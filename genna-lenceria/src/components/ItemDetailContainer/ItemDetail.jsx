@@ -1,16 +1,18 @@
 import React from "react";
+import Counter from "../Counter/Counter";
 
 
-const ItemDetail = ({item}) => {
-    return(
+
+const ItemDetail = ({ item, onAdd }) => {
+    return (
         <>
-        <img src={item.img} alt={item.name} />
-        <div>
-            <h3>{item.name}</h3>
-            <p>Model: {item.model}</p>
-            <p>Stock: {item.stock} unidades</p>
-            <p>Price: ${item.price}</p>
-        </div>
+            <img src={item.image} alt={item.name} />
+            <div>
+                <h3>{item.name}</h3>
+                <p>Stock: {item.stock} unidades</p>
+                <p>Price: ${item.price}</p>
+                <Counter onAdd={onAdd}/>
+            </div>
         </>
 
     )

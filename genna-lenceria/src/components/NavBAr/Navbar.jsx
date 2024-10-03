@@ -13,6 +13,7 @@ function NavigationBar() {
             <Nav.Link href="/">Inicio</Nav.Link>
             <Nav.Link href="/Catalogo">Catalogo</Nav.Link>
             <Nav.Link href="/Contacto">Contacto</Nav.Link>
+            <Nav.Link href="/CartDetail">Cart</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget/>

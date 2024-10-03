@@ -1,15 +1,22 @@
-import React from "react";
-import Item from "./Item";
+import React, { useEffect, useState } from "react";
+import Pijamas from "../../Pages/Pijamas";
 
+const ItemList = ({ items }) => {
+    const [pijamaItems, setPijamaItems] = useState([]);
 
-const ItemList = ({items}) => {
-    return(
+    useEffect(() => {
+        
+        if (items) {
+            const filteredPijamas = items.filter(item => item.category === "pijamas");
+            setPijamaItems(filteredPijamas);
+        }
+    }, [items]); 
+
+    return (
         <div>
-            {items.map((el,i) => (
-                <Item key={i} item={el}/>
-            ))}
+            <Pijamas products={pijamaItems} />
         </div>
-    )
-}
+    );
+};
 
 export default ItemList;
