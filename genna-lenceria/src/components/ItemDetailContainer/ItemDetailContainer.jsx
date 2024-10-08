@@ -6,7 +6,7 @@ import CartContext from "../Cart/CartContext";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
-    const { id } = useParams()
+    const { productoId } = useParams()
     const { addItem } = useContext(CartContext)
 
     const onAdd = (q) => {
@@ -14,12 +14,12 @@ const ItemDetailContainer = () => {
     }
     useEffect(() => {
         const db = getFirestore()
-        const docRef = doc(db, "items", id)
+        const docRef = doc(db, "items", productoId)
         getDoc(docRef)
+
             .then((snapshot => {
                 setItem({
-                    id: snapshot.id,
-                    ...snapshot.data()
+                    productoId: snapshot.id,...snapshot.data()
                 })
             }))
     }, [])
@@ -33,3 +33,4 @@ const ItemDetailContainer = () => {
     )
 }
 export default ItemDetailContainer;
+

@@ -13,14 +13,14 @@ const ItemListContainer = () => {
         getDocs(itemCollection)
             .then((snapshot) => {
                 setProducts(
-                    snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+                    snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })).filter(item => item.category === categoryId.toLowerCase())
                 )
-            .catch((error) => {
+            }).catch((error) => {
                 console.error("Error fetching documents: ", error);
             })
-                
-            })
     }, [])
+
+
     return (
         <div>
             <ItemList items={products} />

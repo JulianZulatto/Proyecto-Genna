@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import CartContext from './CartContext'
-import {collection, getFirestore, addDoc} from 'firebase/firestore'
+import { collection, getFirestore, addDoc } from 'firebase/firestore'
 import Form from '../Form/Form';
 
 
 const CartDetail = () => {
+
+    const [orderId, setOrderId] = useState('')
 
     const [buyer, setBuyer] = useState({
         name: "",
@@ -45,42 +47,54 @@ const CartDetail = () => {
     }
 
 
-
-
     const addToCart = () => {
         const db = getFirestore()
         const orderCollection = collection(db, "orders")
         const purchase = {
             buyer,
             items: cart,
-            total: 1950,
+            total: 1500,
             date: new Date()
         }
         addDoc(orderCollection, purchase)
+            .then(res => {
+                setOrderId(res.id)
+                clear()
+                setBuyer({
+                    name: '',
+                    email: ''
+                })
+            })
+            .catch(error => console.log(error))
     }
 
 
 
-
+console.log(cart)
 
 
     return (
         <div>
             <h3>CART</h3>
             <Form handleChage={handleChage} submit={submit} formData={buyer} error={error} />
-
-
+            <div>
+                {
+                    cart.map(el => (
+                        <div key={el.id}>
+                            <div>
+                                <p>Product: {el.name}</p>
+                                <p>Cantidad: {el.quantity}</p>
+                            </div>
+                            <img src={el.image} alt="" />
+                            <button onClick={() => removeItem(el.id)} > Eliminar </button>
+                        </div >
+                    ))
+                }
+            </div>
             {
-                cart.map(el => (
-                    <div key={el.id}>
-                        <div>
-                            <p>Product: {el.name}</p>
-                            <p>Cantidad: {el.quantity}</p>
-                        </div>
-                        <img src={el.image} alt="" />
-                        <button onClick={() => removeItem(el.id)} > Eliminar </button>
-                    </div >
-                ))
+                orderId && <p>Gracias por su compra
+                    orden de compra {orderId}
+                </p>
             }
         </div>
     )

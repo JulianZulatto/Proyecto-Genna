@@ -14,12 +14,13 @@ const CartContextProvider = ({ children }) => {
                 quantity: q,
                 ...item
             }
-        ])
+        ]
+        )
     }
 
     const removeItem = (id) => {
         setCart(
-            cart.filter((el) => el.id !== id)
+            cart.filter((el) => el.id !== id) //voy a dejar los articulos q no corresponden al id q quiero eliminar
         )
     }
 
@@ -27,11 +28,16 @@ const CartContextProvider = ({ children }) => {
         setCart([])
     }
 
+    // const getTotal = () => {
+    //     return 2500
+    // }
+
     const values = {
         cart,
         addItem,
         removeItem,
-        clear
+        clear,
+        // getTotal
     }
     return (
         <>

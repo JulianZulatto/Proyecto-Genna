@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Pijamas from "../../Pages/Pijamas";
+import Item from "./Item";
 
 const ItemList = ({ items }) => {
-    const [pijamaItems, setPijamaItems] = useState([]);
 
-    useEffect(() => {
-        
-        if (items) {
-            const filteredPijamas = items.filter(item => item.category === "pijamas");
-            setPijamaItems(filteredPijamas);
-        }
-    }, [items]); 
 
     return (
         <div>
-            <Pijamas products={pijamaItems} />
+            <Item products={items} />
         </div>
     );
 };
