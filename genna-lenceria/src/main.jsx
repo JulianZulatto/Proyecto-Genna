@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { BrowserRouter } from "react-router-dom";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,4 +25,12 @@ const app = initializeApp(firebaseConfig);
 
 
 
-createRoot(document.getElementById('root')).render(<App/>)
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>
+  </StrictMode>
+
+
+)
