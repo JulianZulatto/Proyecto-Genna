@@ -70,9 +70,6 @@ const CartDetail = () => {
 
 
 
-console.log(cart)
-
-
     return (
         <div>
             <h3>CART</h3>
@@ -80,7 +77,7 @@ console.log(cart)
             <div>
                 {
                     cart.map(el => (
-                        <div key={el.id}>
+                        <div key={el.productoId}>
                             <div>
                                 <p>Product: {el.name}</p>
                                 <p>Cantidad: {el.quantity}</p>
